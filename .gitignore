@@ -1,0 +1,19 @@
+# Geçici dosyalar
+__pycache__/
+*.pyc
+
+# YOLOv5 çıktıları
+runs/
+*.pt
+
+# JSON / zip / model ağırlıkları
+*.json
+*.zip
+
+# Sistem dosyaları
+.DS_Store
+
+# Ortam dosyaları
+.env
+
+yolov5/
