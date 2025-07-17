@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# CSV dosyasını oku
+df = pd.read_csv('runs/detect/yuz_modelim10/results.csv')
+epochs = df['epoch']
+
+# Precision ve Recall
+precision = df['metrics/precision(B)']
+recall = df['metrics/recall(B)']
+
+plt.figure(figsize=(10, 6))
+plt.plot(epochs, precision, label='Precision', marker='o')
+plt.plot(epochs, recall, label='Recall', marker='x')
+plt.title('Precision ve Recall Değerleri')
+plt.xlabel('Epoch')
+plt.ylabel('Değer')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()

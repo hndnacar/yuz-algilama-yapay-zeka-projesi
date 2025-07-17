@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# CSV dosyasını oku
+df = pd.read_csv('runs/detect/yuz_modelim10/results.csv')
+epochs = df['epoch']
+
+# mAP değerleri
+map50 = df['metrics/mAP50(B)']
+map50_95 = df['metrics/mAP50-95(B)']
+
+plt.figure(figsize=(10, 6))
+plt.plot(epochs, map50, label='mAP@0.5', marker='o')
+plt.plot(epochs, map50_95, label='mAP@0.5:0.95', marker='x')
+plt.title('mAP Değerleri')
+plt.xlabel('Epoch')
+plt.ylabel('mAP')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()

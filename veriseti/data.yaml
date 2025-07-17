@@ -1,0 +1,12 @@
+train: C:/benim_yuz_algilama/veriseti/train/images
+val: C:/benim_yuz_algilama/veriseti/valid/images
+
+nc: 1
+names: ['My-Face']
+
+roboflow:
+  workspace: handan-acar-p5dvz
+  project: benimyuzmodelim
+  version: 1
+  license: MIT
+  url: https://universe.roboflow.com/handan-acar-p5dvz/benimyuzmodelim/dataset/1

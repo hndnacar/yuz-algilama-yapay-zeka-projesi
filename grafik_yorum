@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# CSV dosyasını oku
+csv_path = 'runs/detect/yuz_modelim10/results.csv'
+df = pd.read_csv(csv_path)
+
+# Epoch numaralarını al
+epochs = df['epoch']
+
+# Eğitim ve doğrulama kayıpları
+train_box_loss = df['train/box_loss']
+val_box_loss = df['val/box_loss']
+
+# Grafik çizimi
+plt.figure(figsize=(10, 6))
+plt.plot(epochs, train_box_loss, label='Train Box Loss', marker='o')
+plt.plot(epochs, val_box_loss, label='Val Box Loss', marker='x')
+plt.title('Box Loss Eğrileri (Eğitim vs Doğrulama)')
+plt.xlabel('Epoch')
+plt.ylabel('Box Loss')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()

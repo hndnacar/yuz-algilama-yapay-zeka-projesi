@@ -1,0 +1,33 @@
+from ultralytics import YOLO
+import cv2
+
+# Modeli yükle
+model = YOLO('runs/detect/yuz_modelim10/weights/best.pt')
+
+# Kamera başlat
+cap = cv2.VideoCapture(0)
+
+# Sabit bir pencere oluştur
+cv2.namedWindow("Yüz Algılama", cv2.WINDOW_NORMAL)  # pencereyi büyütülebilir yapar
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Modelle tahmin yap
+    results = model(frame)
+
+    # Tahmin sonuçlarını çiz
+    annotated_frame = results[0].plot()
+
+    # Görüntüyü sabit pencerede göster
+    cv2.imshow("Yüz Algılama", annotated_frame)
+
+    # 'q' tuşuna basılırsa çık
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Kaynakları serbest bırak
+cap.release()
+cv2.destroyAllWindows()
