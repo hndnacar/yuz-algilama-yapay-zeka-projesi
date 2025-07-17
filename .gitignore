@@ -1,0 +1,21 @@
+# Geçici dosyalar
+__pycache__/
+*.pyc
+
+# YOLOv5 çıktıları
+runs/
+
+# JSON / zip / model ağırlıkları
+*.json
+*.zip
+
+# Sistem dosyaları
+.DS_Store
+
+# Ortam dosyaları
+.env
+
+# Model dosyasını yükleyeceğimiz için yorum satırı yapıldı
+# *.pt
+
+yolov5/
